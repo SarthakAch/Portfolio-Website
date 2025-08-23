@@ -10,38 +10,44 @@ body {
 /* ===== Navbar ===== */
 .navbar {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
+  flex-wrap: wrap;
+  padding: 10px 50px;
   background-color: #fff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.logo { font-size: 1.5em; font-weight: bold; }
+.nav-left { flex: 1; }
 
-.nav-links {
-  list-style: none;
+.nav-center {
   display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  align-items: center;
-  margin: 10px 0 0 0;
+  flex: 2;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
   padding: 0;
+  align-items: center;
 }
 
-.nav-links li a { text-decoration: none; color: #333; font-weight: bold; font-size: 1em; padding: 8px 5px; }
+.nav-center li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 1em;
+  padding: 8px 5px;
+}
 
-.nav-links li a i { font-size: 1.5em; color: #333; }
+.nav-center li a i { font-size: 1.5em; color: #333; }
+.nav-center li a:hover, .nav-center li a:hover i { color: #007acc; }
 
-.nav-links li a:hover i,
-.nav-links li a:hover { color: #007acc; }
-
-.theme-toggle {
+.nav-right {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 10px;
+  flex: 1;
+  justify-content: flex-end;
 }
 
 /* Toggle switch */
@@ -51,6 +57,26 @@ body {
 .slider:before { position: absolute; content:""; height:14px; width:14px; left:3px; bottom:3px; background:white; border-radius:50%; transition:0.3s; }
 input:checked + .slider { background-color:#333; }
 input:checked + .slider:before { transform: translateX(20px); }
+
+.toggle-text { font-size: 0.9em; }
+
+/* Language Selector */
+.language-selector select {
+  padding: 5px 8px;
+  font-size: 1em;
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Mode for Select */
+body.dark-mode .language-selector select {
+  background-color: #333;
+  color: #f4f4f9;
+  border: 1px solid #555;
+}
 
 /* ===== Hero ===== */
 .hero {
@@ -106,37 +132,28 @@ input:checked + .slider:before { transform: translateX(20px); }
 /* ===== Dark Mode ===== */
 body.dark-mode { background-color:#121212; color:#f4f4f9; }
 body.dark-mode .navbar { background-color:#1e1e1e; }
-body.dark-mode .nav-links li a { color:#f4f4f9; }
-body.dark-mode .nav-links li a i { color:#f4f4f9; }
+body.dark-mode .nav-center li a { color:#f4f4f9; }
+body.dark-mode .nav-center li a i { color:#f4f4f9; }
 body.dark-mode .window { background:#1e1e1e; }
 body.dark-mode .window-content { color:#f4f4f9; }
 body.dark-mode .title-bar { background:#333; }
 
 /* ===== Responsive ===== */
-@media (max-width: 1024px) {
-  .navbar { padding: 15px 30px; }
-  .hero h2 { font-size: 2.2em; }
-  .hero p { font-size: 1.1em; }
-}
-
 @media (max-width: 768px) {
-  .navbar { flex-direction: column; align-items: flex-start; }
-  .nav-links { flex-direction: column; gap: 10px; width: 100%; }
-  .theme-toggle { margin-top: 10px; }
-  .hero h2 { font-size: 2em; }
-  .hero p { font-size: 1em; }
+  .navbar { flex-direction: column; align-items: center; padding: 10px 20px; }
+  .nav-center { flex-direction: column; gap: 10px; }
+  .nav-right { flex-direction: column; gap: 5px; margin-top: 10px; justify-content: center; }
 }
 
 @media (max-width: 480px) {
-  .navbar { padding: 10px 15px; }
-  .nav-links { width: 100%; justify-content: space-between; }
-  .nav-links li { flex: 1; text-align: center; }
-  .nav-links li a { font-size: 1em; padding: 10px 0; display: block; }
-  .nav-links li a i { font-size: 1.8em; }
-  .theme-toggle { width: 100%; justify-content: center; margin-top: 10px; }
-  .hero h2 { font-size: 1.5em; }
-  .hero p { font-size: 0.95em; }
+  .nav-center li { text-align: center; }
+  .nav-center li a { font-size: 1em; padding: 8px 0; }
+  .nav-center li a i { font-size: 1.6em; }
+  .hero h2 { font-size: 1.4em; }
+  .hero p { font-size: 0.9em; }
   .window { width: 95%; }
   .title-bar { font-size: 0.95em; }
   .window-content { font-size: 0.95em; }
+  .toggle-text { font-size: 0.85em; }
+  .language-selector select { font-size: 0.85em; padding: 4px 6px; }
 }
