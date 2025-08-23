@@ -17,6 +17,7 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+      <button id="dark-toggle">🌙</button>
     </nav>
   </header>
 
@@ -83,5 +84,16 @@
   <footer>
     <p>© 2025 Sarthak Acharya | Software Engineer</p>
   </footer>
+
+  <!-- Dark Mode Script -->
+  <script>
+    const toggleBtn = document.getElementById("dark-toggle");
+    const body = document.body;
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      toggleBtn.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
+    });
+  </script>
 </body>
 </html>
