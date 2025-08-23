@@ -22,7 +22,7 @@ closeButtons.forEach(btn => {
   });
 });
 
-// Close when clicking outside modal
+// Close when clicking outside modal content
 window.addEventListener("click", e => {
   if (e.target.classList.contains("modal")) {
     e.target.style.display = "none";
