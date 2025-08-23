@@ -30,14 +30,19 @@ body {
   padding: 0;
 }
 
-.nav-links li a { text-decoration: none; color: #333; font-weight: bold; font-size: 1em; }
+.nav-links li a { text-decoration: none; color: #333; font-weight: bold; font-size: 1em; padding: 8px 5px; }
 
-.nav-links li a i { font-size: 1.2em; color: #333; }
+.nav-links li a i { font-size: 1.5em; color: #333; }
 
 .nav-links li a:hover i,
 .nav-links li a:hover { color: #007acc; }
 
-.theme-toggle { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
 
 /* Toggle switch */
 .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
@@ -124,9 +129,14 @@ body.dark-mode .title-bar { background:#333; }
 
 @media (max-width: 480px) {
   .navbar { padding: 10px 15px; }
+  .nav-links { width: 100%; justify-content: space-between; }
+  .nav-links li { flex: 1; text-align: center; }
+  .nav-links li a { font-size: 1em; padding: 10px 0; display: block; }
+  .nav-links li a i { font-size: 1.8em; }
+  .theme-toggle { width: 100%; justify-content: center; margin-top: 10px; }
   .hero h2 { font-size: 1.5em; }
-  .hero p { font-size: 0.9em; }
+  .hero p { font-size: 0.95em; }
   .window { width: 95%; }
-  .title-bar { font-size: 0.9em; }
-  .window-content { font-size: 0.9em; }
+  .title-bar { font-size: 0.95em; }
+  .window-content { font-size: 0.95em; }
 }
