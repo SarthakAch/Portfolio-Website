@@ -3,97 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarthak Acharya | Software Engineer</title>
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
   <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">Sarthak Acharya</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button id="dark-toggle">🌙</button>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <h1 class="logo">Sarthak Acharya</h1>
+    <ul class="nav-links">
+      <li><a href="#" id="aboutBtn">About</a></li>
+      <li><a href="#" id="workBtn">Work Experience</a></li>
+      <li><a href="https://www.linkedin.com/in/achsarthak" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="https://github.com/SarthakAch" target="_blank"><i class="fab fa-github"></i></a></li>
+      <li><a href="achsarthak@gmail.com"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span class="toggle-text">Dark Mode</span>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>Hello, I’m <span>Sarthak</span></h1>
-      <p>Aspiring Software Engineer | Student at ECU</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
+    <h2>Hi, I’m a Software Engineer</h2>
+    <p>I build scalable applications and love solving problems through code.</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
-      I am a sophomore Software Engineering student passionate about building software solutions, 
-      exploring AI, and continuously learning. I enjoy solving problems and working on projects that 
-      have real-world impact.
-    </p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <h2>Skills</h2>
-    <div class="skills-list">
-      <span>Python</span>
-      <span>Java</span>
-      <span>HTML & CSS</span>
-      <span>JavaScript</span>
-      <span>Git & GitHub</span>
-      <span>SQL</span>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-cards">
-      <div class="card">
-        <h3>Poker Game</h3>
-        <p>Flask-based virtual poker game with backend logic in Python.</p>
+  <!-- About Modal -->
+  <div id="aboutModal" class="modal">
+    <div class="window">
+      <div class="title-bar">
+        <span>About Me</span>
+        <button class="close" data-close="aboutModal">&times;</button>
       </div>
-      <div class="card">
-        <h3>AI Tracking Tool</h3>
-        <p>Implemented Cellpose/Ultrack for tracking biological samples.</p>
-      </div>
-      <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>Responsive personal website built with HTML, CSS, and GitHub Pages.</p>
+      <div class="window-content">
+        <p>
+          I am a passionate Software Engineering student specializing in building scalable,
+          user-friendly, and innovative solutions. Focused on web development and problem-solving.
+        </p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:achsarthak@gmail.com">achsarthak@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/achsarthak" target="_blank">linkedin.com/in/achsarthak</a></p>
-    <p>GitHub: <a href="https://github.com/SarthakAch" target="_blank">github.com/SarthakAch</a></p>
-  </section>
+  <!-- Work Experience Modal -->
+  <div id="workModal" class="modal">
+    <div class="window">
+      <div class="title-bar">
+        <span>Work Experience</span>
+        <button class="close" data-close="workModal">&times;</button>
+      </div>
+      <div class="window-content">
+        <ul>
+          <li>IT Support, ECU — Assisted new students with software & hardware (2025)</li>
+          <li>Internship at [Company] — Worked on [Project] (Summer 2025)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Sarthak Acharya | Software Engineer</p>
-  </footer>
-
-  <!-- Dark Mode Script -->
-  <script>
-    const toggleBtn = document.getElementById("dark-toggle");
-    const body = document.body;
-
-    toggleBtn.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      toggleBtn.textContent = body.classList.contains("dark-mode") ? "☀️" : "🌙";
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
