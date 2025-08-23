@@ -10,37 +10,51 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <h1 class="logo">Sarthak Acharya</h1>
-    <ul class="nav-links">
+    <div class="nav-left">
+      <h1 class="logo">Sarthak Acharya</h1>
+    </div>
+    <ul class="nav-center">
       <li><a href="#" id="aboutBtn">About</a></li>
       <li><a href="#" id="workBtn">Work Experience</a></li>
       <li><a href="https://www.linkedin.com/in/achsarthak" target="_blank"><i class="fab fa-linkedin"></i></a></li>
       <li><a href="https://github.com/SarthakAch" target="_blank"><i class="fab fa-github"></i></a></li>
       <li><a href="mailto:achsarthak@gmail.com"><i class="fas fa-envelope"></i></a></li>
     </ul>
-    <div class="theme-toggle">
-      <label class="switch">
-        <input type="checkbox" id="darkModeToggle">
-        <span class="slider round"></span>
-      </label>
-      <span class="toggle-text">Dark Mode</span>
+    <div class="nav-right">
+      <div class="theme-toggle">
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider round"></span>
+        </label>
+        <span class="toggle-text">Dark Mode</span>
+      </div>
+      <div class="language-selector">
+        <select id="languageSelect">
+          <option value="en">English</option>
+          <option value="ne">Nepali</option>
+          <option value="zh">Chinese</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="es">Spanish</option>
+        </select>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>Hi, I’m a Software Engineer</h2>
-    <p>I build scalable applications and love solving problems through code.</p>
+    <h2 id="heroTitle">Hi, I’m a Software Engineer</h2>
+    <p id="heroDesc">I build scalable applications and love solving problems through code.</p>
   </section>
 
   <!-- About Modal -->
   <div id="aboutModal" class="modal">
     <div class="window">
       <div class="title-bar">
-        <span>About Me</span>
+        <span id="aboutTitle">About Me</span>
         <button class="close" data-close="aboutModal">&times;</button>
       </div>
-      <div class="window-content">
+      <div class="window-content" id="aboutContent">
         <p>
           I am a passionate Software Engineering student specializing in building scalable,
           user-friendly, and innovative solutions. Focused on web development and problem-solving.
@@ -53,10 +67,10 @@
   <div id="workModal" class="modal">
     <div class="window">
       <div class="title-bar">
-        <span>Work Experience</span>
+        <span id="workTitle">Work Experience</span>
         <button class="close" data-close="workModal">&times;</button>
       </div>
-      <div class="window-content">
+      <div class="window-content" id="workContent">
         <ul>
           <li>IT Support, ECU — Assisted new students with software & hardware (2025)</li>
           <li>Internship at [Company] — Worked on [Project] (Summer 2025)</li>
