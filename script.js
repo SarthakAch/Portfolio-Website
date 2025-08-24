@@ -1,8 +1,17 @@
 // ===== Dark Mode Toggle =====
 const darkToggle = document.getElementById("darkModeToggle");
+const modeLabel = document.getElementById("modeLabel");
 if (darkToggle) {
+  // Persist preference (optional)
+  const saved = localStorage.getItem("prefers-dark");
+  if (saved === "true") {
+    document.body.classList.add("dark-mode");
+    darkToggle.checked = true;
+  }
+
   darkToggle.addEventListener("change", () => {
     document.body.classList.toggle("dark-mode");
+    localStorage.setItem("prefers-dark", document.body.classList.contains("dark-mode"));
   });
 }
 
@@ -27,7 +36,7 @@ if (workBtn && workModal) {
   });
 }
 
-// close
+// close buttons
 closeButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     const id = btn.dataset.close;
@@ -55,12 +64,13 @@ const workTitle = document.getElementById("workTitle");
 const workContent = document.getElementById("workContent");
 const navAbout = document.getElementById("aboutBtn");
 const navWork = document.getElementById("workBtn");
+const skillsTitle = document.getElementById("skillsTitle");
+const levelLabels = document.querySelectorAll(".skill-level-label");
 
 const translations = {
   en: {
     heroTitle: "Hi, I’m a Software Engineer",
-    heroDesc:
-      "I build scalable applications and love solving problems through code.",
+    heroDesc: "I build scalable applications and love solving problems through code.",
     aboutTitle: "About Me",
     aboutText:
       "I am a passionate Software Engineering student specializing in building scalable, user-friendly, and innovative solutions. Focused on web development and problem-solving.",
@@ -69,88 +79,105 @@ const translations = {
       "<li>IT Support, ECU — Assisted new students with software & hardware (2025)</li><li>Internship at [Company] — Worked on [Project] (Summer 2025)</li>",
     navAbout: "About",
     navWork: "Work Experience",
+    skillsTitle: "My Skills",
+    levels: { beginner: "Beginner", intermediate: "Intermediate", expert: "Expert", pro: "Pro" }
   },
   ne: {
     heroTitle: "नमस्ते, म सफ्टवेयर इन्जिनियर हुँ",
-    heroDesc:
-      "म स्केलेबल एप्लिकेशन निर्माण गर्छु र कोडको माध्यमबाट समस्या समाधान गर्न मन पराउँछु।",
+    heroDesc: "म स्केलेबल एप्लिकेशन निर्माण गर्छु र कोडबाट समस्या समाधान गर्न मन पराउँछु।",
     aboutTitle: "मेरो बारेमा",
     aboutText:
-      "म स्केलेबल, प्रयोगकर्ता-मित्र र नवीन समाधानहरू निर्माण गर्नेमा विशेषज्ञता राख्ने सफ्टवेयर इन्जिनियरिङ्ग विद्यार्थी हुँ। वेब विकास र समस्या समाधानमा ध्यान केन्द्रित।",
+      "म स्केलेबल, प्रयोगकर्ता-मित्र र नवीन समाधानहरू निर्माण गर्नेमा विशेषज्ञता राख्ने सफ्टवेयर इन्जिनियरिङ विद्यार्थी हुँ। वेब विकास र समस्या समाधानमा ध्यान केन्द्रित।",
     workTitle: "कामको अनुभव",
     workContent:
-      "<li>आईटी सपोर्ट, ECU — नयाँ विद्यार्थीहरूलाई सफ्टवेयर र हार्डवेयर सहयोग (2025)</li><li>इंटर्नशिप [कम्पनी] — [प्रोजेक्ट] मा काम (ग्रीष्म 2025)</li>",
+      "<li>आईटी सपोर्ट, ECU — नयाँ विद्यार्थीलाई सफ्टवेयर र हार्डवेयरमा सहयोग (2025)</li><li>इंटर्नशिप [कम्पनी] — [प्रोजेक्ट] मा काम (ग्रीष्म 2025)</li>",
     navAbout: "बारेमा",
     navWork: "कामको अनुभव",
+    skillsTitle: "मेरो सीपहरू",
+    levels: { beginner: "सुरुआती", intermediate: "मध्यम", expert: "दक्ष", pro: "प्रो" }
   },
   zh: {
     heroTitle: "你好，我是一名软件工程师",
-    heroDesc: "我构建可扩展的应用程序，并喜欢通过代码解决问题。",
+    heroDesc: "我构建可扩展的应用，并且热爱用代码解决问题。",
     aboutTitle: "关于我",
     aboutText:
-      "我是一名专注于构建可扩展、用户友好和创新解决方案的软件工程学生。专注于网页开发和问题解决。",
+      "我是一名专注于构建可扩展、用户友好且具有创新性的解决方案的软件工程学生。专注于网页开发和问题解决。",
     workTitle: "工作经验",
     workContent:
-      "<li>IT支持, ECU — 协助新生软件和硬件 (2025)</li><li>[公司]实习 — 参与[项目] (2025夏)</li>",
+      "<li>IT支持（ECU）— 帮助新生的软件与硬件 (2025)</li><li>[公司] 实习 — 参与 [项目] (2025 夏)</li>",
     navAbout: "关于",
     navWork: "工作经验",
+    skillsTitle: "我的技能",
+    levels: { beginner: "初级", intermediate: "中级", expert: "高级", pro: "专业" }
   },
   fr: {
     heroTitle: "Bonjour, je suis ingénieur logiciel",
-    heroDesc:
-      "Je construis des applications évolutives et j'aime résoudre des problèmes avec du code.",
+    heroDesc: "Je crée des applications évolutives et j’adore résoudre des problèmes avec du code.",
     aboutTitle: "À propos de moi",
     aboutText:
-      "Je suis un étudiant en génie logiciel passionné, spécialisé dans la création de solutions évolutives, conviviales et innovantes. Axé sur le développement web et la résolution de problèmes.",
+      "Étudiant passionné en génie logiciel, spécialisé dans la création de solutions évolutives, conviviales et innovantes. Focalisé sur le web et la résolution de problèmes.",
     workTitle: "Expérience professionnelle",
     workContent:
-      "<li>Support IT, ECU — Aider les nouveaux étudiants avec le logiciel et le matériel (2025)</li><li>Stage chez [Entreprise] — Travail sur [Projet] (été 2025)</li>",
+      "<li>Support IT, ECU — Aide aux nouveaux étudiants (logiciel & matériel) (2025)</li><li>Stage chez [Entreprise] — Travail sur [Projet] (Été 2025)</li>",
     navAbout: "À propos",
     navWork: "Expérience",
+    skillsTitle: "Mes compétences",
+    levels: { beginner: "Débutant", intermediate: "Intermédiaire", expert: "Avancé", pro: "Pro" }
   },
   de: {
     heroTitle: "Hallo, ich bin Softwareingenieur",
-    heroDesc:
-      "Ich entwickle skalierbare Anwendungen und liebe es, Probleme durch Code zu lösen.",
+    heroDesc: "Ich entwickle skalierbare Anwendungen und löse gerne Probleme mit Code.",
     aboutTitle: "Über mich",
     aboutText:
-      "Ich bin ein leidenschaftlicher Student der Softwaretechnik, der sich auf die Erstellung skalierbarer, benutzerfreundlicher und innovativer Lösungen spezialisiert hat. Fokus auf Webentwicklung und Problemlösung.",
+      "Ich bin ein leidenschaftlicher Student der Softwaretechnik mit Schwerpunkt auf skalierbare, benutzerfreundliche und innovative Lösungen. Fokus auf Webentwicklung und Problemlösung.",
     workTitle: "Berufserfahrung",
     workContent:
-      "<li>IT-Support, ECU — Unterstützung neuer Studenten bei Software & Hardware (2025)</li><li>Praktikum bei [Firma] — Arbeit an [Projekt] (Sommer 2025)</li>",
+      "<li>IT-Support, ECU — Unterstützung neuer Studierender bei Software & Hardware (2025)</li><li>Praktikum bei [Firma] — Arbeit an [Projekt] (Sommer 2025)</li>",
     navAbout: "Über mich",
     navWork: "Berufserfahrung",
+    skillsTitle: "Meine Fähigkeiten",
+    levels: { beginner: "Einsteiger", intermediate: "Fortgeschritten", expert: "Experte", pro: "Profi" }
   },
   es: {
-    heroTitle: "Hola, soy un ingeniero de software",
-    heroDesc:
-      "Construyo aplicaciones escalables y me encanta resolver problemas a través del código.",
+    heroTitle: "Hola, soy ingeniero de software",
+    heroDesc: "Construyo aplicaciones escalables y me encanta resolver problemas con código.",
     aboutTitle: "Sobre mí",
     aboutText:
-      "Soy un estudiante de ingeniería de software apasionado, especializado en crear soluciones escalables, fáciles de usar e innovadoras. Centrado en desarrollo web y resolución de problemas.",
+      "Soy un estudiante apasionado de ingeniería de software, especializado en crear soluciones escalables, fáciles de usar e innovadoras. Enfocado en desarrollo web y resolución de problemas.",
     workTitle: "Experiencia laboral",
     workContent:
-      "<li>Soporte IT, ECU — Asistí a nuevos estudiantes con software y hardware (2025)</li><li>Pasantía en [Compañía] — Trabajó en [Proyecto] (Verano 2025)</li>",
+      "<li>Soporte IT, ECU — Ayudé a nuevos estudiantes con software y hardware (2025)</li><li>Pasantía en [Compañía] — Trabajo en [Proyecto] (Verano 2025)</li>",
     navAbout: "Sobre mí",
     navWork: "Experiencia",
-  },
+    skillsTitle: "Mis habilidades",
+    levels: { beginner: "Principiante", intermediate: "Intermedio", expert: "Experto", pro: "Pro" }
+  }
 };
 
 if (languageSelect) {
   languageSelect.addEventListener("change", () => {
     const lang = languageSelect.value;
-    if (!translations[lang]) return;
+    const t = translations[lang];
+    if (!t) return;
 
-    if (heroTitle) heroTitle.textContent = translations[lang].heroTitle;
-    if (heroDesc) heroDesc.textContent = translations[lang].heroDesc;
+    if (heroTitle) heroTitle.textContent = t.heroTitle;
+    if (heroDesc) heroDesc.textContent = t.heroDesc;
 
-    if (aboutTitle) aboutTitle.textContent = translations[lang].aboutTitle;
-    if (aboutText) aboutText.innerHTML = translations[lang].aboutText;
+    if (aboutTitle) aboutTitle.textContent = t.aboutTitle;
+    if (aboutText) aboutText.innerHTML = t.aboutText;
 
-    if (workTitle) workTitle.textContent = translations[lang].workTitle;
-    if (workContent) workContent.innerHTML = translations[lang].workContent;
+    if (workTitle) workTitle.textContent = t.workTitle;
+    if (workContent) workContent.innerHTML = t.workContent;
 
-    if (navAbout) navAbout.textContent = translations[lang].navAbout;
-    if (navWork) navWork.textContent = translations[lang].navWork;
+    if (navAbout) navAbout.textContent = t.navAbout;
+    if (navWork) navWork.textContent = t.navWork;
+
+    if (skillsTitle) skillsTitle.textContent = t.skillsTitle;
+
+    // Update level labels beside bars
+    levelLabels.forEach(label => {
+      const lvl = label.dataset.level; // beginner/intermediate/expert/pro
+      if (t.levels && t.levels[lvl]) label.textContent = t.levels[lvl];
+    });
   });
 }

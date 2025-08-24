@@ -86,6 +86,62 @@ body.dark-mode .language-selector select {
 .hero h2 { font-size: 2.2em; margin-bottom: 12px; }
 .hero p { font-size: 1.1em; }
 
+
+/* ===== Skills ===== */
+.skills-section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.skills-section h3 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.6em;
+}
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.skill-name {
+  width: 160px;
+  min-width: 140px;
+  font-weight: 600;
+}
+.skill-bar {
+  flex: 1 1 300px;
+  height: 14px;
+  background: #e6e8ec;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  border-radius: inherit;
+  width: 0;                  /* default, overridden by level classes */
+  transition: width 0.8s ease-in-out;
+}
+.level-beginner { width: 25%; background: #ff6b6b; }
+.level-intermediate { width: 50%; background: #f4a261; }
+.level-expert { width: 75%; background: #3b82f6; }
+.level-pro { width: 95%; background: #22c55e; }
+
+.skill-level-label {
+  width: 110px;
+  min-width: 90px;
+  text-align: left;
+  font-size: 0.95em;
+  opacity: 0.9;
+}
+
+/* Dark mode for skills */
+body.dark-mode .skill-bar { background: #2a2a2a; }
+
+
+
 /* ===== Modals (Windows style) ===== */
 .modal {
   display: none;
