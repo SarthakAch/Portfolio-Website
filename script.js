@@ -1,3 +1,4 @@
+
 // ===== Dark Mode Toggle =====
 const darkToggle = document.getElementById("darkModeToggle");
 const modeLabel = document.getElementById("modeLabel");
@@ -80,7 +81,7 @@ const translations = {
     navAbout: "About",
     navWork: "Work Experience",
     skillsTitle: "My Skills",
-    levels: { beginner: "Beginner", intermediate: "Intermediate", expert: "Expert", pro: "Pro" }
+    
   },
   ne: {
     heroTitle: "नमस्ते, म सफ्टवेयर इन्जिनियर हुँ",
@@ -94,7 +95,7 @@ const translations = {
     navAbout: "बारेमा",
     navWork: "कामको अनुभव",
     skillsTitle: "मेरो सीपहरू",
-    levels: { beginner: "सुरुआती", intermediate: "मध्यम", expert: "दक्ष", pro: "प्रो" }
+    
   },
   zh: {
     heroTitle: "你好，我是一名软件工程师",
@@ -108,7 +109,7 @@ const translations = {
     navAbout: "关于",
     navWork: "工作经验",
     skillsTitle: "我的技能",
-    levels: { beginner: "初级", intermediate: "中级", expert: "高级", pro: "专业" }
+    
   },
   fr: {
     heroTitle: "Bonjour, je suis ingénieur logiciel",
@@ -122,7 +123,7 @@ const translations = {
     navAbout: "À propos",
     navWork: "Expérience",
     skillsTitle: "Mes compétences",
-    levels: { beginner: "Débutant", intermediate: "Intermédiaire", expert: "Avancé", pro: "Pro" }
+    
   },
   de: {
     heroTitle: "Hallo, ich bin Softwareingenieur",
@@ -136,7 +137,7 @@ const translations = {
     navAbout: "Über mich",
     navWork: "Berufserfahrung",
     skillsTitle: "Meine Fähigkeiten",
-    levels: { beginner: "Einsteiger", intermediate: "Fortgeschritten", expert: "Experte", pro: "Profi" }
+    
   },
   es: {
     heroTitle: "Hola, soy ingeniero de software",
@@ -150,7 +151,7 @@ const translations = {
     navAbout: "Sobre mí",
     navWork: "Experiencia",
     skillsTitle: "Mis habilidades",
-    levels: { beginner: "Principiante", intermediate: "Intermedio", expert: "Experto", pro: "Pro" }
+    
   }
 };
 
