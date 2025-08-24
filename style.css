@@ -78,6 +78,22 @@ body.dark-mode .language-selector select {
   border: 1px solid #555;
 }
 
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-picture {
+  width: 200px;
+  height: 180px;
+  border-radius: 15%;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+
 /* ===== Hero ===== */
 .hero {
   text-align: center;
@@ -111,7 +127,7 @@ body.dark-mode .language-selector select {
 .title-bar {
   background: #5a442f;
   color: white;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
