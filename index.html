@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarthak Acharya</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sarthak Acharya | Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 </head>
 <body>
   <!-- Navbar -->
@@ -13,26 +14,28 @@
     <div class="nav-left">
       <h1 class="logo">Sarthak Acharya</h1>
     </div>
+
     <ul class="nav-center">
       <li><a href="#" id="aboutBtn">About</a></li>
       <li><a href="#" id="workBtn">Work Experience</a></li>
-      <li><a href="https://www.linkedin.com/in/achsarthak" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="https://github.com/SarthakAch" target="_blank"><i class="fab fa-github"></i></a></li>
-      <li><a href="https://www.facebook.com/share/16CPBkJW17/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a></li>
-      <li><a href="https://www.instagram.com/achsarthak?igsh=cXA4NThlcXRyMWcy&utm_source=qr" target="_blank"><i class="fab fa-instagram"></i></a></li>
-      <li><a href="mailto:achsarthak@gmail.com"><i class="fas fa-envelope"></i></a></li>
-
+      <li><a href="https://www.linkedin.com/in/achsarthak" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="https://github.com/SarthakAch" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+      <li><a href="mailto:achsarthak@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+      <li><a href="https://www.facebook.com/share/16CPBkJW17/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+      <li><a href="https://www.instagram.com/achsarthak?igsh=cXA4NThlcXRyMWcy&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
     </ul>
+
     <div class="nav-right">
       <div class="theme-toggle">
         <label class="switch">
-          <input type="checkbox" id="darkModeToggle">
+          <input type="checkbox" id="darkModeToggle" />
           <span class="slider round"></span>
         </label>
         <span class="toggle-text">Dark Mode</span>
       </div>
+
       <div class="language-selector">
-        <select id="languageSelect">
+        <select id="languageSelect" aria-label="Language selector">
           <option value="en">English</option>
           <option value="ne">Nepali</option>
           <option value="zh">Chinese</option>
@@ -44,7 +47,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <h2 id="heroTitle">Hi, I’m a Software Engineer</h2>
     <p id="heroDesc">I build scalable applications and love solving problems through code.</p>
@@ -55,15 +58,19 @@
     <div class="window">
       <div class="title-bar">
         <span id="aboutTitle">About Me</span>
-        <button class="close" data-close="aboutModal">&times;</button>
+        <button class="close" data-close="aboutModal" aria-label="Close">&times;</button>
       </div>
-       
-      <div class="window-content" id="aboutContent">
-        <img src="picture\pic.jpg" alt="My Picture" class="about-picture">
-        <p>
-          I am a passionate Software Engineering student specializing in building scalable,
-          user-friendly, and innovative solutions. Focused on web development and problem-solving.
-        </p>
+      <div class="window-content">
+        <div class="about-container">
+          <!-- Replace the filename with your actual image file in /picture/ -->
+          <img src="picture/pic.jpg" alt="Profile photo" class="about-picture" />
+          <div class="about-text">
+            <p id="aboutText">
+              I am a passionate Software Engineering student specializing in building scalable,
+              user-friendly, and innovative solutions. Focused on web development and problem-solving.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,10 +80,10 @@
     <div class="window">
       <div class="title-bar">
         <span id="workTitle">Work Experience</span>
-        <button class="close" data-close="workModal">&times;</button>
+        <button class="close" data-close="workModal" aria-label="Close">&times;</button>
       </div>
-      <div class="window-content" id="workContent">
-        <ul>
+      <div class="window-content">
+        <ul id="workContent">
           <li>IT Support, ECU — Assisted new students with software & hardware (2025)</li>
           <li>Internship at [Company] — Worked on [Project] (Summer 2025)</li>
         </ul>
