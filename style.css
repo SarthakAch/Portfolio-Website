@@ -61,23 +61,6 @@ input:checked + .slider { background-color:#333; }
 input:checked + .slider:before { transform: translateX(20px); }
 .toggle-text { font-size: 0.9em; }
 
-/* Language Selector */
-.language-selector select {
-  padding: 5px 8px;
-  font-size: 1em;
-  background-color: #fff;
-  color: #333;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-/* Dark Mode for the select */
-body.dark-mode .language-selector select {
-  background-color: #333;
-  color: #f4f4f9;
-  border: 1px solid #555;
-}
-
 /* ===== Hero ===== */
 .hero {
   text-align: center;
@@ -237,6 +220,5 @@ body.dark-mode .title-bar { background:#333; }
   .title-bar { font-size: 0.95em; }
   .window-content { font-size: 0.98em; }
   .toggle-text { font-size: 0.85em; }
-  .language-selector select { font-size: 0.9em; padding: 4px 6px; }
   .about-picture { width: 140px; height: 140px; }
 }
