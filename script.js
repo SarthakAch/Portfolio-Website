@@ -70,11 +70,11 @@ const levelLabels = document.querySelectorAll(".skill-level-label");
 
 const translations = {
   en: {
-    heroTitle: "Hi, I’m a Software Engineer",
-    heroDesc: "I build scalable applications and love solving problems through code.",
+    heroTitle: "Hi, I’m Sarthak, a Software Engineering Student passionate about building impactful software.",
+    heroDesc: "I build scalable applications and enjoy solving real-world problems through code.",
     aboutTitle: "About Me",
     aboutText:
-      "I am a passionate Software Engineering student specializing in building scalable, user-friendly, and innovative solutions. Focused on web development and problem-solving.",
+      "My name is Sarthak Acharya, and I am a Software Engineering student at East Carolina University. I was born and raised in Kathmandu, Nepal, where my curiosity for technology began at a very young age. At around three years old, I was introduced to a computer, and what started as learning and gaming slowly grew into a deep passion for building and problem-solving through code.<br><br>Today, I enjoy creating scalable, user-friendly, and innovative solutions while constantly working to improve my skills as both a student and an engineer. My journey in software engineering is driven by curiosity and the excitement of turning ideas into reality.<br><br>Outside of academics, I love sports, travelling to new countries, and riding motorcycles. These passions keep me active, adventurous, and open to new experiences, which also shape the way I approach challenges in life and technology.",
     workTitle: "Work Experience",
     workContent:
       "<li>IT Support, ECU — Assisted new students with software & hardware (2025)</li><li>Internship at [Company] — Worked on [Project] (Summer 2025)</li>",
