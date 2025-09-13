@@ -104,7 +104,7 @@ input:checked + .slider:before { transform: translateX(20px); }
 .skill-fill {
   height: 100%;
   border-radius: inherit;
-  width: 0;                  
+  width: 0;                  /* default, overridden by level classes */
   transition: width 0.8s ease-in-out;
 }
 .level-beginner { width: 25%; background: #ff6b6b; }
@@ -137,56 +137,68 @@ body.dark-mode .skill-bar { background: #2a2a2a; }
 }
 
 .window {
-  width: 90%;
+  width: 150%;
   max-width: 1200px;
-  max-height: 90vh;          
+  height: 600px;
   background: lightgray;
   border-radius: 8px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.35);
   overflow: hidden;
   animation: popupFade 0.25s ease-in-out;
-  display: flex;
-  flex-direction: column;
 }
 
+/* ---------- Minimal fix starts here ---------- */
+/* Ensure title bar contents are vertically centered and the close button aligns properly */
 .title-bar {
   background: rgb(180, 180, 180);
   padding: 15px 14px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
+  align-items: center; /* explicitly ensure vertical centering */
 }
 
-.window-content {
-  padding: 18px;
-  color: #333;
-  overflow-y: auto;        /*  scrolling for content */
-  flex: 1;       
+/* Adjust close button so it visually centers and uses the same color as the title text */
+.title-bar button.close {
+  background: transparent;
+  border: none;
+  color: inherit;           /* match the title/text color instead of forcing white */
+  font-size: 1.2em;
+  cursor: pointer;
+  line-height: 1;
+  padding: 6px 10px;        /* clickable area */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;             /* ensures consistent vertical alignment */
+}
+/* ---------- Minimal fix ends here ---------- */
+
+.window-content { padding: 18px; color: #333; }
+
+/* Smooth popup fade */
+@keyframes popupFade {
+  from { transform: scale(0.94); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
 }
 
 /* ===== About: image + text side-by-side ===== */
 .about-container {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* keeps it responsive */
 }
 
 .about-picture {
-  width: 300px;
-  height: auto;
+  width: 400px;
+  height: 500px;
   border-radius: 10%;
   object-fit: cover;
   flex: 0 0 auto;
   box-shadow: 0 4px 12px rgba(0,0,0,0.18);
 }
 
-.about-text {
-  flex: 1 1 280px;
-  line-height: 1.6;
-  min-width: 200px;
-}
+.about-text { flex: 1 1 280px; line-height: 1.6; }
 
 /* ===== Dark Mode ===== */
 body.dark-mode { background-color:#121212; color: white; }
@@ -198,27 +210,51 @@ body.dark-mode .window-content { color:#f4f4f9; }
 body.dark-mode .title-bar { background:#333; }
 
 /* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .navbar { padding: 10px 22px; }
+}
+
 @media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    align-items: center;
+  .navbar { flex-direction: column; align-items: center; padding: 10px 20px; }
+  .nav-center { flex-direction: column; gap: 10px; }
+  .nav-right { flex-direction: column; gap: 6px; margin-top: 10px; justify-content: center; }
+}
+
+/* Modal sizing and content-height overrides only on smaller screens.
+   This prevents cutting off modal content while leaving the desktop layout (and navbar)
+   exactly as you originally had. */
+@media (max-width: 768px) {
+  .window {
+    width: 95%;
+    /* let the modal grow vertically but cap it to the viewport height */
+    height: auto;
+    max-height: 85vh;
   }
-  .about-picture {
-    width: 180px;
-    height: 180px;
-  }
-  .about-text {
-    text-align: center;
+  /* ensure inner content can scroll within the capped modal */
+  .window-content {
+    max-height: calc(85vh - 56px); /* subtract approx title-bar height so content fits */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 
 @media (max-width: 480px) {
+  .nav-center li { text-align: center; }
+  .nav-center li a { font-size: 1em; padding: 6px 0; }
+  .nav-center li a i { font-size: 1.5em; }
+  .hero h2 { font-size: 1.4em; }
+  .hero p { font-size: 0.95em; }
+  .window { width: 95%; }
+  .title-bar { font-size: 0.95em; }
+  .window-content { font-size: 0.98em; }
+  .toggle-text { font-size: 0.85em; }
+  .about-picture { width: 140px; height: 140px; }
+
+  /* tighter cap on very small screens */
   .window {
-    width: 95%;
-    max-height: 85vh;       /* ✅ better fit on small screens */
+    max-height: 80vh;
   }
-  .about-picture {
-    width: 140px;
-    height: 140px;
+  .window-content {
+    max-height: calc(80vh - 56px);
   }
 }
