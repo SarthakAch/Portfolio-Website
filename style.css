@@ -223,7 +223,7 @@ body.dark-mode .title-bar { background:#333; }
 /* Modal sizing and content-height overrides only on smaller screens.
    This prevents cutting off modal content while leaving the desktop layout (and navbar)
    exactly as you originally had. */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .window {
     width: 95%;
     /* let the modal grow vertically but cap it to the viewport height */
