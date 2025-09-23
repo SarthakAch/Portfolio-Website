@@ -9,7 +9,7 @@ It showcases my **About Me, Work Experience, Projects, and Contact Information**
 - Sections include:  
   - **About Me** – brief introduction and background.  
   - **Work Experience** – professional experiences and skills.  
-  - **Projects** – highlights of my work and achievements.  
+  - **Projects** – highlights of my work and achievements (Linkedin and Github).
   - **Contact** – easy way to get in touch.  
 - Dark/Light mode support for better user experience.  
 
